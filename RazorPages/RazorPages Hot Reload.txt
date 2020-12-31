@@ -1,0 +1,25 @@
+
+Install-Package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation 3.1.0.
+
+public void ConfigureServices(IServiceCollection services)
+{
+	services.AddRazorPages().AddRazorRuntimeCompilation();  //hot reload
+	services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+}
+
+---
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Home page";
+    var currentTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+}
+
+<div class="container row p-0 m-0"> @* p-0:padding 0, m-0: margin 0, mt-0:margin-top 0 *@
+    <div class="col-8">
+        <h2 class="text-info">Page Load DateTime</h2>
+    </div>
+    <div class="col-4">
+        <button class="btn btn-info btn-lg text-white"><h2>@currentTime</h2></button>
+    </div>
+</div>
+
